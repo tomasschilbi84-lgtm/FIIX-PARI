@@ -208,10 +208,10 @@ footer {
     margin-top: 40px;
 }
 
-/* 🔥 كل الصور داخل كادر صغير موحد الحجم 🔥 */
+/* 🔥 كل الصور داخل كادر موحد أكبر 200px 🔥 */
 img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
     border: 2px solid rgba(255,255,255,0.6);
@@ -300,6 +300,17 @@ img {
     &copy; 2025 FIIX PARI جميع الحقوق محفوظة
 </footer>
 
+<!-- ===== Live Chat / إشعار دعم تلقائي ===== -->
+<div id="liveChat" style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,0,0,0.9); color: #fff; padding: 15px 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(255,0,0,0.7); display: none; z-index: 9999; cursor: pointer; font-weight: bold;">
+    هل تحتاج مساعدة؟ اضغط هنا للتواصل عبر WhatsApp!
+</div>
+
+<!-- ===== أزرار WhatsApp عائمة ===== -->
+<div id="whatsappButtons" style="position: fixed; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+    <a href="https://wa.me/212600141693" target="_blank" style="background:#25D366; color:#fff; padding:12px 18px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.5);">واتساب 1</a>
+    <a href="https://wa.me/212615019755" target="_blank" style="background:#25D366; color:#fff; padding:12px 18px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.5);">واتساب 2</a>
+</div>
+
 <script>
 // النجوم
 const starsContainer = document.getElementById('stars');
@@ -328,6 +339,15 @@ function moveSlide(i){
 document.querySelector('.prev').onclick = () => moveSlide(idx - 1);
 document.querySelector('.next').onclick = () => moveSlide(idx + 1);
 setInterval(() => moveSlide(idx + 1), 3000);
+
+// Live Chat يظهر بعد 10 ثواني
+setTimeout(() => {
+    const liveChat = document.getElementById('liveChat');
+    liveChat.style.display = 'block';
+    liveChat.onclick = () => {
+        window.open('https://wa.me/212600141693', '_blank');
+    }
+}, 10000);
 </script>
 
 </body>
